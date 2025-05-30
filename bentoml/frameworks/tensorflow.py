@@ -89,7 +89,7 @@ class _TensorflowFunctionWrapper:
 def _load_tf_saved_model(path):
     try:
         import tensorflow as tf
-        from tensorflow.python.training.tracking.tracking import AutoTrackable
+        from tensorflow.python.trackable.autotrackable import AutoTrackable
 
         TF2 = tf.__version__.startswith('2')
     except ImportError:

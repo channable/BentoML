@@ -214,7 +214,7 @@ class HTTPRequest:
 
     """
 
-    headers: HTTPHeaders = HTTPHeaders()
+    headers: HTTPHeaders = field(default_factory=HTTPHeaders)
     body: bytes = b""
 
     def __post_init__(self):
@@ -329,7 +329,7 @@ class InferenceResult(Generic[Output]):
 
     # context
     http_status: int = 501
-    http_headers: HTTPHeaders = HTTPHeaders()
+    http_headers: HTTPHeaders = field(default_factory=HTTPHeaders)    
     aws_lambda_event: Optional[dict] = None
     cli_status: Optional[int] = 0
 
@@ -399,7 +399,7 @@ class InferenceTask(Generic[Input]):
 
     # context
     http_method: Optional[str] = None
-    http_headers: HTTPHeaders = HTTPHeaders()
+    http_headers: HTTPHeaders = field(default_factory=HTTPHeaders)
     aws_lambda_event: Optional[dict] = None
     cli_args: Optional[Sequence[str]] = None
     inference_job_args: Optional[Mapping[str, Any]] = None
