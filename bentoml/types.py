@@ -261,7 +261,7 @@ class HTTPRequest:
 @dataclass
 class HTTPResponse:
     status: int = 200
-    headers: HTTPHeaders = HTTPHeaders()
+    http_headers: HTTPHeaders = field(default_factory=HTTPHeaders)
     body: Optional[bytes] = b""
 
     @classmethod
@@ -329,7 +329,7 @@ class InferenceResult(Generic[Output]):
 
     # context
     http_status: int = 501
-    http_headers: HTTPHeaders = field(default_factory=HTTPHeaders)    
+    http_headers: HTTPHeaders = field(default_factory=HTTPHeaders)
     aws_lambda_event: Optional[dict] = None
     cli_status: Optional[int] = 0
 
