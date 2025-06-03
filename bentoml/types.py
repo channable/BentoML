@@ -261,7 +261,7 @@ class HTTPRequest:
 @dataclass
 class HTTPResponse:
     status: int = 200
-    http_headers: HTTPHeaders = field(default_factory=HTTPHeaders)
+    headers: HTTPHeaders = field(default_factory=HTTPHeaders)
     body: Optional[bytes] = b""
 
     @classmethod
